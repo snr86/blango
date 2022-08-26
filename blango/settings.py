@@ -52,6 +52,7 @@ class Dev(Configuration):
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
+      'debug_toolbar',
 
       
   ]
@@ -61,6 +62,7 @@ class Dev(Configuration):
   CRISPY_TEMPLATE_PACK = "bootstrap5"
 
   MIDDLEWARE = [
+      'debug_toolbar.middleware.DebugToolbarMiddleware',
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'django.middleware.common.CommonMiddleware',
@@ -68,6 +70,7 @@ class Dev(Configuration):
       'django.contrib.auth.middleware.AuthenticationMiddleware',
       'django.contrib.messages.middleware.MessageMiddleware',
   # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        
   ]
 
   ROOT_URLCONF = 'blango.urls'
@@ -147,6 +150,9 @@ class Dev(Configuration):
 
   DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+  INTERNAL_IPS = ["192.168.11.179"]
+
+
   LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -175,5 +181,4 @@ class Prod(Dev):
     SECRET_KEY = values.SecretValue()
     ALLOWED_HOSTS = values.ListValue(["localhost", "0.0.0.0", ".codio.io"])
   
-
 
