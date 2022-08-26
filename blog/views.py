@@ -6,7 +6,6 @@ from blog.forms import CommentForm
 import logging
 
 
-
 # Create your views here.
 def index(request):
     posts = Post.objects.filter(published_at__lte=timezone.now())
