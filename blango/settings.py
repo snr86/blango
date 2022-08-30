@@ -153,6 +153,12 @@ class Dev(Configuration):
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+    ACCOUNT_ACTIVATION_DAYS = 7
+
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
     INTERNAL_IPS = ["192.168.11.179"]
       
     LOGGING = {
